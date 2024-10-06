@@ -10,6 +10,7 @@ import SignInPage from './pages/SignInPage.jsx';
 import PlaceOrderPage from './pages/PlaceOrderPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
 import NavbarComponent from './components/NavbarComponent.jsx';
+import FooterComponent from './components/FooterComponent.jsx';
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/place-order" element={<PlaceOrderPage />} />
             <Route path="/orders" element={<OrdersPage />} />
          </Routes>
+         <FooterComponent />
       </div>
 
    );

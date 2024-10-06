@@ -2,6 +2,7 @@ import HeroComponent from '../components/HeroComponent.jsx';
 import LatestCollectionComponent from '../components/LatestCollectionComponent.jsx';
 import BestSellerComponent from '../components/BestSellerComponent.jsx';
 import OurPolicyComponent from '../components/OurPolicyComponent.jsx';
+import NewsletterBoxComponent from '../components/NewsletterBoxComponent.jsx';
 
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
          <LatestCollectionComponent />
          <BestSellerComponent />
          <OurPolicyComponent />
+         <NewsletterBoxComponent />
       </div>
 
    );

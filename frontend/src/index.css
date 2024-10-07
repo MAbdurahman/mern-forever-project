@@ -9,6 +9,7 @@ a.active hr{
 
 *{
    font-family: "Outfit", sans-serif;
+   @tracking-wider;
 }
 
 .prata-regular {

@@ -3,8 +3,6 @@ import {ShopContext} from '../context/ShopContext.jsx';
 import { assets } from '../assets/img/assets.js';
 import TitleComponent from '../components/TitleComponent';
 import ProductItemComponent from '../components/ProductItemComponent.jsx';
-import e from 'express';
-
 
 export default function CollectionPage() {
    const {products} = useContext(ShopContext);

@@ -10,6 +10,7 @@ import SignInPage from './pages/SignInPage.jsx';
 import PlaceOrderPage from './pages/PlaceOrderPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
 import NavbarComponent from './components/NavbarComponent.jsx';
+import SearchBarComponent from './components/SearchBarComponent.jsx';
 import FooterComponent from './components/FooterComponent.jsx';
 
 
@@ -19,6 +20,7 @@ export default function App() {
    return (
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
          <NavbarComponent />
+         <SearchBarComponent />
          <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/collection" element={<CollectionPage />} />

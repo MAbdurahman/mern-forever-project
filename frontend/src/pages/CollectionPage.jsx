@@ -32,6 +32,7 @@ export default function CollectionPage() {
 
    const applyFilter = () => {
       let productsCopy = products.slice();
+
       if (category.length > 0) {
          productsCopy = products.filter(item => category.includes(item.category));
       }
@@ -45,10 +46,10 @@ export default function CollectionPage() {
 
    useEffect(() => {
       setFilterProducts(products);
-   }, [products]);
+   }, []);
 
    useEffect(() => {
-
+      applyFilter();
    }, [category, subCategory]);
 
    return (

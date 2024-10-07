@@ -126,7 +126,7 @@ export const products = [
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
         image: [p_img3],
-        category: "Kids",
+        category: "Children",
         subCategory: "Top Wear",
         sizes: ["S", "L", "XL"],
         date: 1716234545448,

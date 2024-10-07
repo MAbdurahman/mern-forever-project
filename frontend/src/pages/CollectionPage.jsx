@@ -10,7 +10,7 @@ export default function CollectionPage() {
    const [filterProducts,setFilterProducts] = useState([]);
    const [category,setCategory] = useState([]);
    const [subCategory,setSubCategory] = useState([]);
-   const [sortType,setSortType] = useState('');
+   const [sortType,setSortType] = useState('relevent');
 
    const toggleCategory = (e) => {
       if (category.includes(e.target.value)) {
@@ -36,21 +36,40 @@ export default function CollectionPage() {
       if (category.length > 0) {
          productsCopy = products.filter(item => category.includes(item.category));
       }
+
+      if (subCategory.length > 0 ) {
+         productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory))
+      }
+
       setFilterProducts(productsCopy);
 
    }
 
    const sortProducts = () => {
-      console.log(`sort products ${products.length} products`);
-   }
+      let filteredProductsCopy = filterProducts.slice();
 
-   useEffect(() => {
-      setFilterProducts(products);
-   }, []);
+      switch (sortType) {
+         case 'low-high':
+            setFilterProducts(filteredProductsCopy.sort((a,b)=>(a.price - b.price)));
+            break;
+
+         case 'high-low':
+            setFilterProducts(filteredProductsCopy.sort((a,b)=>(b.price - a.price)));
+            break;
+
+         default:
+            applyFilter();
+            break;
+      }
+   }
 
    useEffect(() => {
       applyFilter();
    }, [category, subCategory]);
+
+   useEffect(()=>{
+      sortProducts();
+   },[sortType])
 
    return (
       <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>

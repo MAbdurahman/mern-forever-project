@@ -7,12 +7,10 @@ import RelatedProductsComponent from '../components/RelatedProductsComponent.jsx
 
 export default function ProductPage() {
    const { productId } = useParams();
-   const { products, currency  } = useContext(ShopContext);
+   const { products, currency, addToCart  } = useContext(ShopContext);
    const [productData, setProductData] = useState(false);
    const [image, setImage] = useState('');
    const [size,setSize] = useState('');
-
-
 
    const fetchProductData = async () => {
       await products.map((item) => {
@@ -75,7 +73,7 @@ export default function ProductPage() {
                         ))}
                      </div>
                   </div>
-                  <button
+                  <button onClick={()=>addToCart(productData._id,size)}
                           className='bg-black text-white px-8 py-3 tracking-wider text-sm active:bg-gray-700'>ADD
                      TO CART
                   </button>

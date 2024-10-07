@@ -12,6 +12,8 @@ import OrdersPage from './pages/OrdersPage.jsx';
 import NavbarComponent from './components/NavbarComponent.jsx';
 import SearchBarComponent from './components/SearchBarComponent.jsx';
 import FooterComponent from './components/FooterComponent.jsx';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,6 +21,7 @@ export default function App() {
 
    return (
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+         <ToastContainer />
          <NavbarComponent />
          <SearchBarComponent />
          <Routes>

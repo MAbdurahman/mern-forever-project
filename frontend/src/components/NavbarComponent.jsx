@@ -33,7 +33,10 @@ export default function NavbarComponent() {
             <img onClick={()=> { setShowSearch(true); navigate('/collection') }} src={assets.search_icon} className='w-5 cursor-pointer' alt="search icon"/>
 
             <div className='group relative'>
-               <img className='w-5 cursor-pointer' src={assets.profile_icon} alt="profile icon"/>
+               <Link to='/sign-in'>
+                  <img className="w-5 cursor-pointer" src={assets.profile_icon}
+                       alt="profile icon"/>
+               </Link>
                {/* Dropdown Menu */}
                <div
                   className='group-hover:block hidden absolute tracking-wider dropdown-menu right-0 pt-4'>

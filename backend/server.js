@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import colors from "colors";
 import app from './app/app.js';
 import connectDatabase from './config/configDatabase.js';
+import connectCloudinary from './config/configCloudinary.js';
 
 
 /************************* handling Uncaught exceptions *************************/
@@ -23,6 +24,7 @@ const API_URL = process.env.API_ENV || "/api/v1.0/";
 
 /************************* connect database *************************/
 connectDatabase();
+/*connectCloudinary();*/
 /************************* app listening *************************/
 const server = app.listen(PORT, () => {
    console.log(`The server is listening at - http://127.0.0.1:${PORT}${API_URL} in ${NODE_ENV} mode!`.yellow);

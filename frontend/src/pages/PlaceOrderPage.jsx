@@ -29,7 +29,21 @@ export default function PlaceOrderPage() {
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(`handleSubmit: ${e}`);
+      let orderItems = []
+
+      for (const items in cartItems) {
+         for (const item in cartItems[items]) {
+            if (cartItems[items][item] > 0) {
+               const itemInfo = structuredClone(products.find(product => product._id === items))
+               if (itemInfo) {
+                  itemInfo.size = item
+                  itemInfo.quantity = cartItems[items][item]
+                  orderItems.push(itemInfo)
+               }
+            }
+         }
+      }
+      navigate('/orders');
    }
 
    return (

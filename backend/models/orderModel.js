@@ -11,5 +11,5 @@ const orderSchema = new mongoose.Schema({
    date: {type: Number, required:true}
 })
 
-const Order = mongoose.models.order || mongoose.model('Order',orderSchema)
+const Order = mongoose.model('Order',orderSchema)
 export default Order;

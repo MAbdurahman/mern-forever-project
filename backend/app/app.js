@@ -29,10 +29,18 @@ app.use(helmet());
 
 /************************* import all routes *************************/
 import homeRoute from '../routes/homeRoute.js';
+import userRoute from '../routes/userRoute.js';
+import productRoute from '../routes/productRoute.js';
+import orderRoute from '../routes/orderRoute.js';
+import cartRoute from '../routes/cartRoute.js';
 
 
 /****************************** routes ******************************/
 app.use('/api/v1.0/', homeRoute);
+app.use('/api/v1.0/user', userRoute);
+app.use('/api/v1.0/product', productRoute);
+app.use('/api/v1.0/order', orderRoute);
+app.use('/api/v1.0/cart', cartRoute);
 
 
 export default app;

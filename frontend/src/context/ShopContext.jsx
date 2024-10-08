@@ -6,16 +6,13 @@ import { products } from '../assets/img/assets.js';
 
 export const ShopContext = createContext();
 
-
 const ShopContextProvider = (props) => {
-
    const currency = '$';
    const deliveryFee = 10;
    const [search, setSearch] = useState('');
    const [showSearch, setShowSearch] = useState(false);
    const [cartItems, setCartItems] = useState({});
    const navigate = useNavigate();
-
 
    const addToCart = async (itemId, size) => {
       if (!size) {

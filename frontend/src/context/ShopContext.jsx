@@ -36,7 +36,7 @@ const ShopContextProvider = (props) => {
          cartData[itemId][size] = 1;
       }
       setCartItems(cartData);
-   }
+   }//end of addToCart Function
 
    const getCartCount = () => {
       let totalCount = 0;
@@ -52,7 +52,31 @@ const ShopContextProvider = (props) => {
          }
       }
       return totalCount;
-   }
+   }//end of getCartCount Function
+
+   const updateQuantity = async (itemId, size, quantity) => {
+      let cartData = structuredClone(cartItems);
+      cartData[itemId][size] = quantity;
+      setCartItems(cartData)
+
+   }//end of updateQuantity Function
+
+   const getCartAmount = () => {
+      let totalAmount = 0;
+      for (const items in cartItems) {
+         let itemInfo = products.find((product) => product._id === items);
+         for (const item in cartItems[items]) {
+            try {
+               if (cartItems[items][item] > 0) {
+                  totalAmount += itemInfo.price * cartItems[items][item];
+               }
+            } catch (error) {
+
+            }
+         }
+      }
+      return totalAmount;
+   }//end of getCartAmount Function
 
 
 /*   useEffect(() => {
@@ -71,7 +95,9 @@ const ShopContextProvider = (props) => {
       cartItems: cartItems,
       setCartItems: setCartItems,
       addToCart: addToCart,
-      getCartCount: getCartCount
+      getCartCount: getCartCount,
+      updateQuantity: updateQuantity,
+      getCartAmount: getCartAmount
    }
    return (
       <ShopContext.Provider value={value}>
@@ -79,5 +105,5 @@ const ShopContextProvider = (props) => {
       </ShopContext.Provider>
    );
 
-}
+}//end of ShopContextProvider Function
 export default ShopContextProvider;

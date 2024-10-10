@@ -3,7 +3,6 @@ import {ShopContext} from '../context/ShopContext.jsx';
 import TitleComponent from './TitleComponent.jsx';
 import ProductItemComponent from './ProductItemComponent.jsx';
 
-
 export default function BestSellerComponent() {
    const {products} = useContext(ShopContext);
    const [bestSeller,setBestSeller] = useState([]);

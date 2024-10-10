@@ -1,14 +1,14 @@
 /************************* imports *************************/
 import express from "express";
-import {createProduct, deleteProduct, getProducts, getSingleProduct} from '../controllers/productController.js';
-
+import {createProduct, deleteProduct, getAllProducts, getSingleProduct} from '../controllers/productController.js';
+import upload from '../middlewares/multerMiddleware.js';
 /************************* variables *************************/
 const router = express.Router();
 
 /************************** routes **************************/
-router.post('/createProduct', createProduct);
-router.delete('/deleteProduct', deleteProduct);
-router.get('/getProducts', getProducts);
-router.post('/getSingleProduct', getSingleProduct);
+router.post('/create-product', upload.fields([{name:'image1',maxCount:1},{name:'image2',maxCount:1},{name:'image3',maxCount:1},{name:'image4',maxCount:1}]), createProduct);
+router.delete('/delete-product', deleteProduct);
+router.get('/get-all-products', getAllProducts);
+router.post('/get-product', getSingleProduct);
 
 export default router;

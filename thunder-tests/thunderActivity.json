@@ -1,0 +1,78 @@
+[
+    {
+        "_id": "3a00c926-f6e7-4a46-b8b4-64682b52820a",
+        "colId": "history",
+        "containerId": "",
+        "name": "http://127.0.0.1:5000/api/v1.0/product/create-product",
+        "url": "http://127.0.0.1:5000/api/v1.0/product/create-product",
+        "method": "POST",
+        "sortNum": 0,
+        "created": "2024-10-10T17:05:43.152Z",
+        "modified": "2024-10-10T17:07:41.122Z",
+        "headers": [],
+        "body": {
+            "type": "formdata",
+            "raw": "",
+            "form": [
+                {
+                    "name": "name",
+                    "value": "Mens Izod Shirt"
+                },
+                {
+                    "name": "description",
+                    "value": "Embrace a bold statement with this exquisite pink polo shirt, designed for the modern gentleman who exudes confidence and individuality. The vibrant hue beautifully contrasts with the intricate tattoos that adorn his skin, creating a striking visual narrative of style and self-expression."
+                },
+                {
+                    "name": "category",
+                    "value": "Men"
+                },
+                {
+                    "name": "subCategory",
+                    "value": "Top Wear"
+                },
+                {
+                    "name": "price",
+                    "value": "40.89"
+                },
+                {
+                    "name": "bestseller",
+                    "value": "true"
+                },
+                {
+                    "name": "sizes",
+                    "value": "[\"S\",\"M\",\"L\",\"XL\"]"
+                }
+            ],
+            "files": [
+                {
+                    "name": "image1",
+                    "value": "../../../Images/Products/clothes/p_img2.png"
+                },
+                {
+                    "name": "image2",
+                    "value": "../../../Images/Products/clothes/p_img2_1.png"
+                },
+                {
+                    "name": "image3",
+                    "value": "../../../Images/Products/clothes/p_img2_2.png"
+                },
+                {
+                    "name": "image4",
+                    "value": "../../../Images/Products/clothes/p_img2_3.png"
+                }
+            ]
+        }
+    },
+    {
+        "_id": "cc729343-fac7-499d-9630-fb36dffe67de",
+        "colId": "history",
+        "containerId": "",
+        "name": "http://127.0.0.1:5000/api/v1.0/product/get-all-products",
+        "url": "http://127.0.0.1:5000/api/v1.0/product/get-all-products",
+        "method": "GET",
+        "sortNum": 0,
+        "created": "2024-10-10T17:14:30.600Z",
+        "modified": "2024-10-10T17:14:30.600Z",
+        "headers": []
+    }
+]

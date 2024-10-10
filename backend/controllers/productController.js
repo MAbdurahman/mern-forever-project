@@ -60,11 +60,13 @@ export const getAllProducts = async (req, res, next) => {
       if (!products) {
          return errorMessageHandler(res, 'This resource was not found!', 404);
       }
+      const productCount = await Product.countDocuments();
 
       res.status(200).json({
          success: true,
          data: {
             message: 'Products list found successfully',
+            productCount,
             products
          }
       });

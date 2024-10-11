@@ -1,21 +1,22 @@
 import jwt from 'jsonwebtoken';
+import { errorMessageHandler } from '../utils/errorMessageHandlerUtil.js';
 
-const authAdmin = async (req,res,next) => {
+const authorizeAdmin = async (req,res,next) => {
+   const { token } = req.headers;
    try {
-      const { token } = req.headers
       if (!token) {
-         return res.json({success:false,message:"Not Authorized Sign In Again"})
+         return errorMessageHandler(res, 'Not Authorized, sign in again!', 403);
       }
       const token_decode = jwt.verify(token,process.env.JWT_SECRET);
       if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-         return res.json({success:false,message:"Not Authorized Sign In Again"})
+         return errorMessageHandler(res, 'Not Authorized, Credentials Invalid!', 403);
+
       }
       next();
 
    } catch (err) {
-      console.log(err);
-      res.json({ success: false, message: err.message });
+      next(err);
    }
-}
+}//end of authorizeAdmin Function
 
-export default authAdmin
+export default authorizeAdmin

@@ -1,5 +1,6 @@
 import validator from "validator";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';
 import { generateToken } from '../utils/generateTokenUtil.js';
 import { errorMessageHandler } from '../utils/errorMessageHandlerUtil.js';
@@ -93,11 +94,37 @@ export const signIn = async (req, res, next) => {
 }//end of signIn Function
 
 export const adminSignIn = async (req, res, next) => {
-   console.log('Admin SignIn');
-   res.status(200).json({
-      success: true,
-      data: {
-         message: 'Admin SignIn successfully'
+   const { email, password } = req.body;
+
+   try {
+      if (!email) {
+         return errorMessageHandler(res, 'Email is required!', 400);
       }
-   })
+      if (!password) {
+         return errorMessageHandler(res, 'Password is required!', 400);
+      }
+      if (email !== process.env.ADMIN_EMAIL) {
+         return errorMessageHandler(res, 'Invalid credentials', 401);
+      }
+      if (password !== process.env.ADMIN_PASSWORD) {
+         return errorMessageHandler(res, 'Invalid credentials', 401);
+      }
+      if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+         const token = jwt.sign(email + password, process.env.JWT_SECRET);
+         res.status(200).json({
+				success: true,
+				data: {
+					message: 'Admin SignIn successfully',
+					token,
+				},
+			});
+      } else {
+         return errorMessageHandler(res,'Forbidden Access!', 403);
+      }
+      
+   } catch (err) {
+      next(err);
+      
+   }
+
 }//end of adminSignIn Function

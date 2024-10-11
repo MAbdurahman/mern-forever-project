@@ -10,6 +10,10 @@ node_modules
 
 # testing
 /coverage
+thunder-tests/
+/thunder-tests
+thunder-tests
+
 
 # production
 /build

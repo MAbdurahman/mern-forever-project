@@ -86,7 +86,7 @@ export const getSingleProduct = async (req, res, next) => {
       res.status(200).json({
          success: true,
          data: {
-            message: 'Single product successfully',
+            message: 'Get single product successfully',
             product: singleProduct
          }
       })
@@ -94,7 +94,7 @@ export const getSingleProduct = async (req, res, next) => {
    } catch(err) {
       next(err);
    }
-}//end of getSingleProdutct Function
+}//end of getSingleProduct Function
 
 export const deleteProduct = async (req, res, next) => {
    const {id} = req.params;
@@ -104,7 +104,7 @@ export const deleteProduct = async (req, res, next) => {
          return errorMessageHandler(res, 'This product was not found!', 404);
       }
       
-      res.status(200).json({
+      res.status(202).json({
          success: true,
          data: {
             message: 'Product deleted successfully',

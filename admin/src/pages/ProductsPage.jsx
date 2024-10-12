@@ -1,9 +1,9 @@
-export default function ListProductsPage() {
+export default function ProductsPage() {
 
    return (
       <div>
          <h2 className="text-3xl font-bold underline">
-            ListProductsPage
+            ProductsPage
          </h2>
       </div>
 

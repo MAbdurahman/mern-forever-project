@@ -5,6 +5,7 @@
 
 *{
    font-family: 'Outfit', sans-serif;
+   letter-spacing: 1px;
 }
 
 select,input,textarea{

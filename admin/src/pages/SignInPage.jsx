@@ -14,10 +14,11 @@ export default function SignInPage({setToken}) {
          const response = await axios.post(backendURL + '/api/v1.0/user/admin-sign-in',{email, password});
          console.log(response)
          if (response.data.success) {
-            setToken(response.data.token);
+            setToken(response.data.data.token);
 
          } else {
-            toast.error(response.data.message)
+            toast.error(response.data.message);
+
          }
 
       } catch(err) {

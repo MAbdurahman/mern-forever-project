@@ -14,19 +14,53 @@ export default function AddProductPage({token}) {
    const [description, setDescription] = useState("");
    const [price, setPrice] = useState("");
    const [category, setCategory] = useState("Men");
-   const [subCategory, setSubCategory] = useState("Topwear");
+   const [subCategory, setSubCategory] = useState("Top Wear");
    const [bestseller, setBestseller] = useState(false);
    const [sizes, setSizes] = useState([]);
 
-
    const handleSubmit = async e => {
       e.preventDefault();
-      console.log('handleSubmit', e);
+
       try {
 
+         const formData = new FormData()
+
+         formData.append("name",name);
+         formData.append("description",description);
+         formData.append("price",price);
+         formData.append("category",category);
+         formData.append("subCategory",subCategory);
+         formData.append("bestseller",bestseller);
+         formData.append("sizes",JSON.stringify(sizes));
+
+         image1 && formData.append("image1",image1);
+         image2 && formData.append("image2",image2);
+         image3 && formData.append("image3",image3);
+         image4 && formData.append("image4",image4);
+
+         const response = await axios.post(backendURL + "/api/v1.0/product/products", formData, {headers:{token}});
+         console.log(response)
+
+         if (response.data.success) {
+            toast.success(response.data.message);
+            setName('');
+            setDescription('');
+            setPrice('');
+            setCategory('Men');
+            setSubCategory('Top Wear');
+            setBestseller(false);
+            setSizes([]);
+            setImage1(false);
+            setImage2(false);
+            setImage3(false);
+            setImage4(false);
+
+         } else {
+            toast.error(response.data.message);
+         }
 
       } catch(err) {
-
+         toast.error(err.message);
       }
    }//end of handleSubmit Function
 
@@ -100,7 +134,7 @@ export default function AddProductPage({token}) {
                        className='w-full px-3 py-2'>
                   <option value="Top Wear">Top Wear</option>
                   <option value="Bottom Wear">Bottom Wear</option>
-                  <option value="Winter Wear">Winter Wearr</option>
+                  <option value="Winter Wear">Winter Wear</option>
                </select>
             </div>
 

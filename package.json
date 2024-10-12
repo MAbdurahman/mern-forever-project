@@ -11,7 +11,8 @@
     "start": "node backend/server.js",
     "server": "SET NODE_ENV=development& nodemon backend/server",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client2": "npm start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run client2\"",
     "prod": "SET NODE_ENV=production& nodemon backend/server"
   },
   "dependencies": {

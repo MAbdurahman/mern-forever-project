@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import NavbarComponent from './components/NavbarComponent.jsx';
 import SidebarComponent from './components/SidebarComponent.jsx';
 import AddProductPage from './pages/AddProductPage.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
+import SignInPage from './pages/SignInPage.jsx';
+
 export default function App() {
+   const [token, setToken] = useState('');
 
    return (
       <div className='bg-gray-50 min-h-screen'>
+         {token === '' ? <SignInPage /> :
          <>
             <NavbarComponent/>
             <hr/>
@@ -24,6 +28,7 @@ export default function App() {
                </div>
             </div>
          </>
+         }
 
       </div>
 

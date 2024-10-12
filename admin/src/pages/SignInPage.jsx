@@ -1,15 +1,29 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import {backendURL} from '../App.jsx';
+import { toast } from 'react-toastify'
 
-export default function SignInPage() {
+export default function SignInPage({setToken}) {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
 
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log('handleSubmit', e);
-   }
+      try {
+         const response = await axios.post(backendURL + '/api/v1.0/user/admin-sign-in',{email, password});
+         console.log(response)
+         if (response.data.success) {
+            setToken(response.data.token);
+
+         } else {
+            toast.error(response.data.message)
+         }
+
+      } catch(err) {
+         toast.error(err.message)
+      }
+   }//end of handleSubmit Function
 
 
    return (

@@ -6,15 +6,25 @@ import AddProductPage from './pages/AddProductPage.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import OrdersPage from './pages/OrdersPage.jsx';
 import SignInPage from './pages/SignInPage.jsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export const backendURL = import.meta.env.VITE_BACKEND_URL;
+export const currency = '$';
 
 export default function App() {
-   const [token, setToken] = useState('');
+   const [token, setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token'):'');
+
+   useEffect(()=>{
+      localStorage.setItem('token',token)
+   },[token])
 
    return (
       <div className='bg-gray-50 min-h-screen'>
-         {token === '' ? <SignInPage /> :
+         <ToastContainer />
+         {token === '' ? <SignInPage setToken={setToken} /> :
          <>
-            <NavbarComponent/>
+            <NavbarComponent setToken={setToken} />
             <hr/>
             <div className='flex w-full'>
                <SidebarComponent/>

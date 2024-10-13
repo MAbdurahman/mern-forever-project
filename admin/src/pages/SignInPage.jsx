@@ -17,7 +17,7 @@ export default function SignInPage({setToken}) {
             setToken(response.data.data.token);
 
          } else {
-            toast.error(response.data.message);
+            toast.error(response.data.data.message);
 
          }
 

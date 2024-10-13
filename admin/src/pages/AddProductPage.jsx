@@ -42,7 +42,7 @@ export default function AddProductPage({token}) {
          console.log(response)
 
          if (response.data.success) {
-            toast.success(response.data.message);
+            toast.success(response.data.data.message);
             setName('');
             setDescription('');
             setPrice('');

@@ -32,7 +32,7 @@ export default function App() {
                   className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
                   <Routes>
                      <Route path='/add-product' element={<AddProductPage token={token}/>}/>
-                     <Route path='/products' element={<ProductsPage />}/>
+                     <Route path='/products' element={<ProductsPage token={token} />}/>
                      <Route path='/orders' element={<OrdersPage />}/>
                   </Routes>
                </div>

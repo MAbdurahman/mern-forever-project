@@ -106,14 +106,14 @@ export default function AddProductPage({token}) {
             <p className='mb-2 capitalize font-semibold'>Product name</p>
             <input onChange={(e) => setName(e.target.value)} value={name}
                    className='w-full max-w-[500px] px-3 py-2' type="text"
-                   placeholder='Type here' required/>
+                   placeholder='product name' required/>
          </div>
 
          <div className='w-full'>
             <p className='mb-2 capitalize font-semibold'>Product description</p>
             <textarea onChange={(e) => setDescription(e.target.value)}
                       value={description} className='w-full max-w-[500px] px-3 py-2'
-                      type="text" placeholder='Write content here' required/>
+                      type="text" placeholder='product description' required/>
          </div>
 
          <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>

@@ -106,8 +106,8 @@ export default function CollectionPage() {
                             onChange={toggleCategory}/> Skirts
                   </p>
                   <p className="flex gap-2">
-                     <input className="w-3" type="checkbox" value={'Sweater'}
-                            onChange={toggleCategory}/> Sweaters
+                     <input className="w-3" type="checkbox" value={'Romper'}
+                            onChange={toggleCategory}/> Rompers
                   </p>
                </div>
             </div>
@@ -116,10 +116,6 @@ export default function CollectionPage() {
                className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
             <p className='mb-3 text-sm font-medium'>COLORS</p>
                <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-                  <p className="flex gap-2">
-                     <input className="w-3" type="checkbox" value={'Beige'}
-                            onChange={toggleSubCategory}/> Beige
-                  </p>
                   <p className="flex gap-2">
                      <input className="w-3" type="checkbox" value={'Black'}
                             onChange={toggleSubCategory}/> Black
@@ -137,16 +133,32 @@ export default function CollectionPage() {
                             onChange={toggleSubCategory}/> Chartreuse
                   </p>
                   <p className="flex gap-2">
+                     <input className="w-3" type="checkbox" value={'Flora'}
+                            onChange={toggleSubCategory}/> Flora
+                  </p>
+                  <p className="flex gap-2">
+                     <input className="w-3" type="checkbox" value={'Grey'}
+                            onChange={toggleSubCategory}/> Grey
+                  </p>
+                  <p className="flex gap-2">
+                     <input className="w-3" type="checkbox" value={'Pink'}
+                            onChange={toggleSubCategory}/> Pink
+                  </p>
+                  <p className="flex gap-2">
+                     <input className="w-3" type="checkbox" value={'Print'}
+                            onChange={toggleSubCategory}/> Print
+                  </p>
+                  <p className="flex gap-2">
                      <input className="w-3" type="checkbox" value={'Red'}
                             onChange={toggleSubCategory}/> Red
                   </p>
                   <p className="flex gap-2">
-                     <input className="w-3" type="checkbox" value={'Taupe'}
-                            onChange={toggleSubCategory}/> Taupe
+                     <input className="w-3" type="checkbox" value={'Striped'}
+                            onChange={toggleSubCategory}/> Striped
                   </p>
                   <p className="flex gap-2">
-                     <input className="w-3" type="checkbox" value={'Winter Wear'}
-                            onChange={toggleSubCategory}/> White
+                     <input className="w-3" type="checkbox" value={'Taupe'}
+                            onChange={toggleSubCategory}/> Taupe
                   </p>
                </div>
             </div>

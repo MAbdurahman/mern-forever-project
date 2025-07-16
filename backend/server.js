@@ -8,9 +8,9 @@ import connectCloudinary from './config/configCloudinary.js';
 
 /************************* handling Uncaught exceptions *************************/
 process.on('uncaughtException', err => {
-   console.log(`ERROR: ${err.stack}`);
-   console.log('Shutting down the server due to Uncaught Exception!'.red);
-   process.exit(1);
+	console.log(`uncaughtException ERROR: ${err.stack}`.red);
+	console.log(`  ➔  Server:  Shutting down the due to Uncaught Exception!`.yellow);
+	process.exit(1);
 });
 
 /************************* configure setup *************************/
@@ -21,20 +21,22 @@ colors.enabled = true;
 const PORT = process.env.PORT || 5000;
 const NODE_ENV = process.env.NODE_ENV;
 const API_URL = process.env.API_ENV || "/api/v1.0/";
+const ADDENDUM = `\t\t...press Ctrl-C to terminate.\n`.white;
 
 /************************* connect database *************************/
 connectDatabase();
 connectCloudinary();
 /************************* app listening *************************/
 const server = app.listen(PORT, () => {
-   console.log(`The server is listening at - http://127.0.0.1:${PORT}${API_URL} in ${NODE_ENV} mode!`.yellow);
+   console.log(`  ➔  Server:  Listening at http://127.0.0.1:${PORT}${API_URL} in ${NODE_ENV} mode!`.yellow);
+	console.log(ADDENDUM);
 });
 
 /************************* handling unhandled promise rejection *************************/
 process.on('unhandledRejection', err => {
-   console.log(`ERROR: ${err.stack}`);
-   console.log('Shutting down the server due to Unhandled Promise Rejection!'.red);
-   server.close(() => {
-      process.exit(1);
-   });
+	console.log(`unhandledRejection ERROR: ${err.stack}`.red);
+	console.log(`  ➔  Server:  Shutting down due to Unhandled Promise Rejection!`.yellow);
+	server.close(() => {
+		process.exit(1);
+	});
 });
